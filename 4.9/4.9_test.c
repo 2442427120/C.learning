@@ -3,18 +3,18 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-//qsort¿âº¯ÊıµÄÉùÃ÷
-void qsort(void* base, //ÔªËØµÄÊ×ÔªËØµØÖ·
-	       size_t num, //Êı×éµÄÔªËØ¸öÊı
-	       size_t width, //Êı×éÔªËØµÄ´óĞ¡
-	       int(*cmp)(const void* e1, const void* e2));//º¯ÊıÖ¸Õë - º¯ÊıµÄ·µ»ØÖµÀàĞÍÊÇint£¬º¯ÊıµÄÁ½¸ö²ÎÊıconst void*
+//qsortåº“å‡½æ•°çš„å£°æ˜
+void qsort(void* base, //å…ƒç´ çš„é¦–å…ƒç´ åœ°å€
+	       size_t num, //æ•°ç»„çš„å…ƒç´ ä¸ªæ•°
+	       size_t width, //æ•°ç»„å…ƒç´ çš„å¤§å°
+	       int(*cmp)(const void* e1, const void* e2));//å‡½æ•°æŒ‡é’ˆ - å‡½æ•°çš„è¿”å›å€¼ç±»å‹æ˜¯intï¼Œå‡½æ•°çš„ä¸¤ä¸ªå‚æ•°const void*
 //void bubble_sort(int arr[], int sz)
 //{
 //	int i = 0;
-// //ÌËÊı
+// //è¶Ÿæ•°
 //	for (i = 0; i < sz - 1; i++)
 //	{
-//		//Ò»ÌËÃ°ÅİÅÅĞò
+//		//ä¸€è¶Ÿå†’æ³¡æ’åº
 //		int j = 0;
 //		for (j = 0; j < sz - i -1; j++)
 //		{
@@ -27,15 +27,15 @@ void qsort(void* base, //ÔªËØµÄÊ×ÔªËØµØÖ·
 //		}
 //	}
 //}
-//´´½¨Ò»¸ö½á¹¹ÌåÀàĞÍ
+//åˆ›å»ºä¸€ä¸ªç»“æ„ä½“ç±»å‹
 struct stu 
 {
 	char name[20];
 	int age;
 };
-//qsort - quick sort - ¿ìËÙÅÅĞò
-//½«intÀàĞÍµÄÊı×éÓÃqsortÉıĞòÅÅĞò
-int cmp_int(const void* e1, const void* e2) //´Ëº¯Êı¹æ¶¨·µ»ØÖµÊÇ0 || 1 || -1
+//qsort - quick sort - å¿«é€Ÿæ’åº
+//å°†intç±»å‹çš„æ•°ç»„ç”¨qsortå‡åºæ’åº
+int cmp_int(const void* e1, const void* e2) //æ­¤å‡½æ•°è§„å®šè¿”å›å€¼æ˜¯0 || 1 || -1
 {
 	return *(int*)e1 - *(int*)e2;
 }
@@ -51,7 +51,7 @@ void test1()
 	}
 	printf("\n");
 }
-//½«floatÀàĞÍµÄÊı×é½øĞĞqsortÉıĞòÅÅĞò
+//å°†floatç±»å‹çš„æ•°ç»„è¿›è¡Œqsortå‡åºæ’åº
 int cmp_float(const void* e1, const* e2)
 {
 	if (*(float*)e1 == *(float*)e2)
@@ -79,14 +79,14 @@ void test2()
 	}
 	printf("\n");
 }
-//ÓÃqsort½«½á¹¹ÌåÀàĞÍµÄÊı×é°´ÄêÁäÉıĞòÅÅĞò
+//ç”¨qsortå°†ç»“æ„ä½“ç±»å‹çš„æ•°ç»„æŒ‰å¹´é¾„å‡åºæ’åº
 int cmp_str_by_age(const void* e1, const void* e2)
 {
 	return ((struct stu*)e1)->age - ((struct stu*)e2)->age;
 }
 void test3()
 {
-	struct stu s[3] = { {"ÕÅÈı",25},{"ÀîËÄ",29},{"ÍõÎå",24}};
+	struct stu s[3] = { {"å¼ ä¸‰",25},{"æå››",29},{"ç‹äº”",24}};
 	int sz = sizeof(s) / sizeof(s[0]);
 	qsort(s, sz, sizeof(s[0]), cmp_str_by_age);
 	int k = 0;
@@ -96,16 +96,16 @@ void test3()
 	}
 	printf("\n");
 }
-//ÓÃqsort½«½á¹¹ÌåÀàĞÍµÄÊı×é°´Ãû×ÖÉıĞòÅÅĞò
+//ç”¨qsortå°†ç»“æ„ä½“ç±»å‹çš„æ•°ç»„æŒ‰åå­—å‡åºæ’åº
 int cmp_str_by_name(const void* e1, const void* e2)
 {
-	//±È½ÏÃû×Ö¾ÍÊÇ±È½Ï×Ö·û´®
-	//²»ÄÜÖ±½ÓÓÃ><=À´±È½Ï£¬Ó¦¸ÃÓÃstrcmp
+	//æ¯”è¾ƒåå­—å°±æ˜¯æ¯”è¾ƒå­—ç¬¦ä¸²
+	//ä¸èƒ½ç›´æ¥ç”¨><=æ¥æ¯”è¾ƒï¼Œåº”è¯¥ç”¨strcmp
 	return strcmp(((struct stu*)e1)->name, ((struct stu*)e2)->name);
 }
 void test4()
 {
-	struct stu s[3] = { {"ÕÅÈı",25},{"ÀîËÄ",29},{"ÍõÎåÒ»",24} };
+	struct stu s[3] = { {"å¼ ä¸‰",25},{"æå››",29},{"ç‹äº”ä¸€",24} };
 	int sz = sizeof(s) / sizeof(s[0]);
 	qsort(s, sz, sizeof(s[0]), cmp_str_by_name);
 	int k = 0;
@@ -115,13 +115,13 @@ void test4()
 	}
 	printf("\n");
 }
-//qsort¿âº¯ÊıµÄÓÃ·¨
+//qsortåº“å‡½æ•°çš„ç”¨æ³•
 int main()
 {
-	test1();//intÀàĞÍ
-	test2();//¸¡µãÀàĞÍ
-	test3();//½á¹¹ÌåÀàĞÍ°´ÄêÁä
-	test4();//½á¹¹ÌåÀàĞÍ°´Ãû×Ö
+	test1();//intç±»å‹
+	test2();//æµ®ç‚¹ç±»å‹
+	test3();//ç»“æ„ä½“ç±»å‹æŒ‰å¹´é¾„
+	test4();//ç»“æ„ä½“ç±»å‹æŒ‰åå­—
 	//bubble_sort(arr, sz);
 	return 0;
 }
@@ -131,11 +131,11 @@ int main()
 //	//int *p = &a;
 //	//char* pc = &a;
 //	void* ps = &a;
-//	//void* ÀàĞÍµÄÖ¸Õë£¬¿ÉÒÔ½ÓÊÕÈÎºÎÀàĞÍµÄµØÖ·
+//	//void* ç±»å‹çš„æŒ‡é’ˆï¼Œå¯ä»¥æ¥æ”¶ä»»ä½•ç±»å‹çš„åœ°å€
 //	*ps = 0;
-//	//void* ÀàĞÍµÄÖ¸Õë£¬²»¿ÉÒÔ½øĞĞ½âÒıÓÃ²Ù×÷
+//	//void* ç±»å‹çš„æŒ‡é’ˆï¼Œä¸å¯ä»¥è¿›è¡Œè§£å¼•ç”¨æ“ä½œ
 //	ps++;
-//	//void* ÀàĞÍµÄÖ¸Õë£¬²»ÄÜ½øĞĞ+-ÕûÊıµÄ²Ù×÷
+//	//void* ç±»å‹çš„æŒ‡é’ˆï¼Œä¸èƒ½è¿›è¡Œ+-æ•´æ•°çš„æ“ä½œ
 //	//char* ch = 'w';
 //	//p = &ch;
 //	return 0;
@@ -146,17 +146,17 @@ int main()
 //}
 //int main()
 //{
-//	//Ö¸ÕëÊı×é
+//	//æŒ‡é’ˆæ•°ç»„
 //	int* arr[10] = { 0 };
-//	//Êı×éÖ¸Õë
+//	//æ•°ç»„æŒ‡é’ˆ
 //	int(*p)[10] = &arr;
-//	//º¯ÊıÖ¸Õë
+//	//å‡½æ•°æŒ‡é’ˆ
 //	int (*pAdd)(int, int) = Add;
 //	int sum = (*pAdd)(2,3);
 //	printf("%d\n", sum);
-//	//º¯ÊıÖ¸ÕëµÄÊı×é
+//	//å‡½æ•°æŒ‡é’ˆçš„æ•°ç»„
 //	int (*parr[4])(int, int);
-//	//Ö¸Ïòº¯ÊıÖ¸ÕëÊı×éµÄÖ¸Õë
+//	//æŒ‡å‘å‡½æ•°æŒ‡é’ˆæ•°ç»„çš„æŒ‡é’ˆ
 //	int (*(*parr)[4])(int,int) = &parr;
 //	return 0;
 //}
