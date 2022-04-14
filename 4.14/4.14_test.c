@@ -3,11 +3,11 @@
 #include<stdio.h>
 #include<string.h>
 #include<assert.h>
-//Ð´Ò»¸öº¯Êý£¬ÅÐ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÎªÁíÒ»¸ö×Ö·û´®µÄÐý×ªºóµÄ×Ö·û´®
-//ÀýÈç:¸ø¶¨s1 = AABCD ºÍs2 = BCDAA£¬·µ»Ø1 £» ¸ø¶¨s1 = abcd ºÍs2 = ACBD£¬·µ»Ø0
-// AABCD×óÐýÒ»¸ö×Ö·ûµÃµ½ABCDA
-// AABCD×óÐýÁ½¸ö×Ö·ûµÃµ½BCDAA
-// AABCDÓÒÐýÒ»¸ö×Ö·ûµÃµ½DAABC
+//å†™ä¸€ä¸ªå‡½æ•°ï¼Œåˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸ºå¦ä¸€ä¸ªå­—ç¬¦ä¸²çš„æ—‹è½¬åŽçš„å­—ç¬¦ä¸²
+//ä¾‹å¦‚:ç»™å®šs1 = AABCD å’Œs2 = BCDAAï¼Œè¿”å›ž1 ï¼› ç»™å®šs1 = abcd å’Œs2 = ACBDï¼Œè¿”å›ž0
+// AABCDå·¦æ—‹ä¸€ä¸ªå­—ç¬¦å¾—åˆ°ABCDA
+// AABCDå·¦æ—‹ä¸¤ä¸ªå­—ç¬¦å¾—åˆ°BCDAA
+// AABCDå³æ—‹ä¸€ä¸ªå­—ç¬¦å¾—åˆ°DAABC
 void reverse(char* left, char* right)
 {
 	assert(left);
@@ -29,9 +29,9 @@ void left_move(char* arr,int k)
 	assert(arr != NULL);
 	assert(k <= len);
 
-	reverse(arr, arr+k-1);//½«×ó±ßk¸ö×Ö·ûÄæÐò
-	reverse(arr+k, arr+len-1);//½«ÓÒ±ßÊ£Óà×Ö·ûÄæÐò
-	reverse(arr, arr+len-1);//½«ÕûÌåÄæÐò
+	reverse(arr, arr+k-1);//å°†å·¦è¾¹kä¸ªå­—ç¬¦é€†åº
+	reverse(arr+k, arr+len-1);//å°†å³è¾¹å‰©ä½™å­—ç¬¦é€†åº
+	reverse(arr, arr+len-1);//å°†æ•´ä½“é€†åº
 }
 
 int is_left_move(char* s1, char* s2)
@@ -67,11 +67,11 @@ int main()
 	return 0;
 }
 
-//ÊµÏÖÒ»¸öº¯Êý£¬¿ÉÒÔ×óÐý×Ö·û´®ÖÐµÄk¸ö×Ö·û
-// ÀýÈç
-// ABCD×óÐýÒ»¸ö×Ö·ûµÃµ½BCDA
-// ABCD×óÐýÁ½¸ö×Ö·ûµÃµ½CDAB
-//±©Á¦Çó½â·¨
+//å®žçŽ°ä¸€ä¸ªå‡½æ•°ï¼Œå¯ä»¥å·¦æ—‹å­—ç¬¦ä¸²ä¸­çš„kä¸ªå­—ç¬¦
+// ä¾‹å¦‚
+// ABCDå·¦æ—‹ä¸€ä¸ªå­—ç¬¦å¾—åˆ°BCDA
+// ABCDå·¦æ—‹ä¸¤ä¸ªå­—ç¬¦å¾—åˆ°CDAB
+//æš´åŠ›æ±‚è§£æ³•
 //void left_move(char* arr, int k)
 //{
 //	arrset(arr != NULL);
@@ -80,20 +80,20 @@ int main()
 //
 //	for (i = 0; i < k; i++)
 //	{
-//		//1.½«arrÖÐµÄµÚÒ»¸öÔªËØÈ¡³ö´æµ½Ò»¸öÁÙÊ±±äÁ¿ÖÐ
+//		//1.å°†arrä¸­çš„ç¬¬ä¸€ä¸ªå…ƒç´ å–å‡ºå­˜åˆ°ä¸€ä¸ªä¸´æ—¶å˜é‡ä¸­
 //		char tmp = *arr;
-//		//2.½«arrÖÐºóÃæµÄÔªËØÈ«²¿ÍùÇ°Å²Ò»Î»
+//		//2.å°†arrä¸­åŽé¢çš„å…ƒç´ å…¨éƒ¨å¾€å‰æŒªä¸€ä½
 //		int j = 0;
 //		for (j = 0; j < len-1; j++)
 //		{
 //			*(arr + j)= *(arr + j + 1);
 //		}
-//		//3.½«µÚÒ»¸öÔªËØ·Åµ½×îºó
+//		//3.å°†ç¬¬ä¸€ä¸ªå…ƒç´ æ”¾åˆ°æœ€åŽ
 //		*(arr + len - 1) = tmp;
 //	}
 //}
 //
-//Èý²½·­×ª·¨
+//ä¸‰æ­¥ç¿»è½¬æ³•
 //abcdef
 //bafedc
 //cdefab
@@ -118,16 +118,16 @@ int main()
 //	assert(arr != NULL);
 //	assert(k <= len);
 //
-//	reverse(arr, arr+k-1);//½«×ó±ßk¸ö×Ö·ûÄæÐò
-//	reverse(arr+k, arr+len-1);//½«ÓÒ±ßÊ£Óà×Ö·ûÄæÐò
-//	reverse(arr, arr+len-1);//½«ÕûÌåÄæÐò
+//	reverse(arr, arr+k-1);//å°†å·¦è¾¹kä¸ªå­—ç¬¦é€†åº
+//	reverse(arr+k, arr+len-1);//å°†å³è¾¹å‰©ä½™å­—ç¬¦é€†åº
+//	reverse(arr, arr+len-1);//å°†æ•´ä½“é€†åº
 //}
 //int main()
 //{
 //	char arr[] = "abcdefgh";
 //	int n = 0;
 //
-//	printf("\aÇëÊäÈëÒª×óÐý¼¸¸ö×Ö·û:");
+//	printf("\aè¯·è¾“å…¥è¦å·¦æ—‹å‡ ä¸ªå­—ç¬¦:");
 //	scanf("%d", &n);
 //	left_move(arr, n);
 //
@@ -136,13 +136,13 @@ int main()
 //	return 0;
 //}
 
-//²ÂÃû´Î
-//AÑ¡ÊÖËµ:BµÚ¶þ£¬ÎÒµÚÈý
-//BÑ¡ÊÖËµ:ÎÒµÚ¶þ£¬EµÚËÄ
-//CÑ¡ÊÖËµ:ÎÒµÚÒ»£¬DµÚ¶þ
-//DÑ¡ÊÖËµ:C×îºó£¬ÎÒµÚÈý
-//EÑ¡ÊÖËµ:ÎÒµÚËÄ£¬AµÚÒ»
-//Ã¿Î»Ñ¡ÊÖ¶¼Ëµ¶ÔÁËÒ»°ë£¬±à³ÌÈ·¶¨±ÈÈüÃû´Î
+//çŒœåæ¬¡
+//Aé€‰æ‰‹è¯´:Bç¬¬äºŒï¼Œæˆ‘ç¬¬ä¸‰
+//Bé€‰æ‰‹è¯´:æˆ‘ç¬¬äºŒï¼ŒEç¬¬å››
+//Cé€‰æ‰‹è¯´:æˆ‘ç¬¬ä¸€ï¼ŒDç¬¬äºŒ
+//Dé€‰æ‰‹è¯´:Cæœ€åŽï¼Œæˆ‘ç¬¬ä¸‰
+//Eé€‰æ‰‹è¯´:æˆ‘ç¬¬å››ï¼ŒAç¬¬ä¸€
+//æ¯ä½é€‰æ‰‹éƒ½è¯´å¯¹äº†ä¸€åŠï¼Œç¼–ç¨‹ç¡®å®šæ¯”èµ›åæ¬¡
 //int main() 
 //{
 //	int a = 0;
@@ -181,12 +181,12 @@ int main()
 //}
 
 
-//²ÂÐ×ÊÖ
-//AËµ:²»ÊÇÎÒ
-//BËµ:ÊÇC
-//CËµ:ÊÇD
-//DËµ:CÔÚºúËµ
-//Çë±àÐ´Ò»¸ö³ÌÐòÀ´ÅÐ¶ÏË­ÊÇÐ×ÊÖ
+//çŒœå‡¶æ‰‹
+//Aè¯´:ä¸æ˜¯æˆ‘
+//Bè¯´:æ˜¯C
+//Cè¯´:æ˜¯D
+//Dè¯´:Cåœ¨èƒ¡è¯´
+//è¯·ç¼–å†™ä¸€ä¸ªç¨‹åºæ¥åˆ¤æ–­è°æ˜¯å‡¶æ‰‹
 //int main()
 //{
 //	int killer = 0;
@@ -273,7 +273,7 @@ int main()
 //	//00000000000000000000000100101100 - a+b
 //	//11001000 - a
 //	//01100100 - b
-//	// ÕûÐÎÌáÉý
+//	// æ•´å½¢æå‡
 //	//00000000000000000000000000101100 - c
 //	printf("%d %d\n", a + b, c);
 //	return 0;
