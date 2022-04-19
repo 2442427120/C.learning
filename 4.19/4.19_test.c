@@ -14,12 +14,12 @@ struct S
 
 int main()
 {
-	printf("%zd\n", offsetof(struct S,a));//offsetof¼ÆËãÆ«ÒÆÁ¿
+	printf("%zd\n", offsetof(struct S,a));//offsetofè®¡ç®—åç§»é‡
 	printf("%zd\n", offsetof(struct S, b));
 	printf("%zd\n", offsetof(struct S, c));
 	return 0;
 }
-////ÉèÖÃÄ¬ÈÏ¶ÔÆëÎ»Îª4
+////è®¾ç½®é»˜è®¤å¯¹é½ä½ä¸º4
 //#pragma pack(4)
 //struct S
 //{
@@ -27,7 +27,7 @@ int main()
 //	double b;
 //
 //};
-////È¡ÏûÉèÖÃµÄÄ¬ÈÏ¶ÔÆëÊı
+////å–æ¶ˆè®¾ç½®çš„é»˜è®¤å¯¹é½æ•°
 //#pragma pack()
 //int main()
 //{
@@ -35,7 +35,7 @@ int main()
 //	printf("%d\n", sizeof(s));
 //	return 0;
 //}
-//½á¹¹Ìå±äÁ¿µÄ³õÊ¼»¯
+//ç»“æ„ä½“å˜é‡çš„åˆå§‹åŒ–
 //struct T
 //{
 //	char f[20];
@@ -58,7 +58,7 @@ int main()
 //	printf("%d %c %s %s %s %lf %s",s.a, s.b, s.c, s.t.f, s.t.g, s.d, s.e);
 //	return 0;
 //}
-//½á¹¹ÌåµÄ×ÔÒıÓÃ
+//ç»“æ„ä½“çš„è‡ªå¼•ç”¨
 //struct node
 //{
 //	int data;
@@ -68,7 +68,7 @@ int main()
 //{
 //	return 0;
 //}
-//×Ô¶¨ÒåÊµÏÖmemmoveº¯Êı
+//è‡ªå®šä¹‰å®ç°memmoveå‡½æ•°
 //void* my_memmove(void* dest, const void* src, size_t count)
 //{
 //	void* start = dest;
@@ -77,7 +77,7 @@ int main()
 //
 //	if (dest < src)
 //	{
-//		//Ç° -> ºó
+//		//å‰ -> å
 //		while (count--)
 //		{
 //			*(char*)dest = *(char*)src;
@@ -87,7 +87,7 @@ int main()
 //	}
 //	else
 //	{
-//		//ºó -> Ç°
+//		//å -> å‰
 //		while (count--)
 //		{
 //			*((char*)dest + count) = *((char*)src + count);
