@@ -16,15 +16,15 @@ void menu()
 int main()
 {
 	int input = 0;
-	//´´½¨Í¨Ñ¶Â¼
-	struct Contact con;//ÕâÊÇÒ»¸öÍ¨Ñ¶Â¼£¬ÀïÃæ°üº¬ÁË1000¸öÔªËØºÍsize
-	//³õÊ¼»¯Í¨Ñ¶Â¼
+	//åˆ›å»ºé€šè®¯å½•
+	struct Contact con;//è¿™æ˜¯ä¸€ä¸ªé€šè®¯å½•ï¼Œé‡Œé¢åŒ…å«äº†1000ä¸ªå…ƒç´ å’Œsize
+	//åˆå§‹åŒ–é€šè®¯å½•
 	InitContact(&con);
 
 	do
 	{
 		menu();
-		printf("ÇëÑ¡Ôñ:>");
+		printf("è¯·é€‰æ‹©:>");
 		scanf("%d",&input);
 		switch (input)
 		{
@@ -47,10 +47,10 @@ int main()
 			/*SortContact(&con);*/
 			break;
 		case EXIT:
-			printf("ÍË³öÍ¨Ñ¶Â¼\n");
+			printf("é€€å‡ºé€šè®¯å½•\n");
 			break;
 		default:
-			printf("ÊäÈë´íÎó,ÇëÖØĞÂÑ¡Ôñ\n");
+			printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°é€‰æ‹©\n");
 			break;
 		}
 	} while (input);
