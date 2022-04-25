@@ -5,35 +5,35 @@
 #include <string.h>
 //int main()
 //{
-//	//´ò¿ªÎÄ¼ştest.txt
-//	//Ïà¶ÔÂ·¾¶
-//	//. ±íÊ¾µ±Ç°Â·¾¶
-//	//.. ±íÊ¾ÉÏÒ»¼¶Â·¾¶
+//	//æ‰“å¼€æ–‡ä»¶test.txt
+//	//ç›¸å¯¹è·¯å¾„
+//	//. è¡¨ç¤ºå½“å‰è·¯å¾„
+//	//.. è¡¨ç¤ºä¸Šä¸€çº§è·¯å¾„
 //	//fopen("./test.txt","r");
 //	//fopen("../../test.txt","r");
 //	//fopen("test.txt","r");
 //
-//	//¾ø¶ÔÂ·¾¶
+//	//ç»å¯¹è·¯å¾„
 //	/*fopen("D:\c-learning\vs2022code\4.25","r");*/
 //
-//	//FILE* pf= fopen("test.txt","r"); //ÒÔ¶ÁµÄĞÎÊ½´ò¿ª - "r"
-//	FILE* pf = fopen("test.txt", "w"); //ÒÔĞ´µÄĞÎÊ½´ò¿ª - "w"
+//	//FILE* pf= fopen("test.txt","r"); //ä»¥è¯»çš„å½¢å¼æ‰“å¼€ - "r"
+//	FILE* pf = fopen("test.txt", "w"); //ä»¥å†™çš„å½¢å¼æ‰“å¼€ - "w"
 //	if (pf == NULL)
 //	{
 //		printf("%s\n",strerror(errno));
 //		return 0;
 //	}
 //
-//	//´ò¿ª³É¹¦
-//	//¶ÁÎÄ¼ş
-//	//¹Ø±ÕÎÄ¼ş
+//	//æ‰“å¼€æˆåŠŸ
+//	//è¯»æ–‡ä»¶
+//	//å…³é—­æ–‡ä»¶
 //	fclose(pf);
 //	pf = NULL;
 //
 //	return 0;
 //}
 
-//ÔÚÎÄ¼şÖĞĞ´ÈëĞÅÏ¢
+//åœ¨æ–‡ä»¶ä¸­å†™å…¥ä¿¡æ¯
 //int main()
 //{
 //	 FILE* pfWrite= fopen("test.txt", "w");
@@ -42,7 +42,7 @@
 //		 printf("%s\n",strerror(errno));
 //		 return 0;
 //	 }
-//	 //Ğ´ÎÄ¼ş
+//	 //å†™æ–‡ä»¶
 //	 fputc('h',pfWrite);
 //	 fputc('e', pfWrite);
 //	 fputc('l', pfWrite);
@@ -62,7 +62,7 @@ int main()
 		printf("%s\n", strerror(errno));
 		return 0;
 	}
-	//¶ÁÎÄ¼ş
+	//è¯»æ–‡ä»¶
 	printf("%c",fgetc(pfRead));//h
 	printf("%c", fgetc(pfRead));//e
 	printf("%c", fgetc(pfRead));//l
