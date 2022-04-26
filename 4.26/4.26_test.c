@@ -11,9 +11,9 @@ int main()
 		return 0;
 	}
 
-	//1.¶¨Î»ÎÄ¼şÖ¸ÕëÎ»ÖÃ
-	fseek(pf, 4, SEEK_CUR);//SEEK_CUR - ÎÄ¼şÖ¸ÕëµÄµ±Ç°Î»ÖÃ¶ÁÈ¡  SEEK_END - ÎÄ¼şÖ¸ÕëµÄÄ©Î²´¦¶ÁÈ¡  SEEK_SET - ÎÄ¼şÖ¸ÕëµÄÆğÊ¼Î»ÖÃ¿ªÊ¼
-	//2.¶ÁÈ¡ÎÄ¼şÄÚÈİ
+	//1.å®šä½æ–‡ä»¶æŒ‡é’ˆä½ç½®
+	fseek(pf, 4, SEEK_CUR);//SEEK_CUR - æ–‡ä»¶æŒ‡é’ˆçš„å½“å‰ä½ç½®è¯»å–  SEEK_END - æ–‡ä»¶æŒ‡é’ˆçš„æœ«å°¾å¤„è¯»å–  SEEK_SET - æ–‡ä»¶æŒ‡é’ˆçš„èµ·å§‹ä½ç½®å¼€å§‹
+	//2.è¯»å–æ–‡ä»¶å†…å®¹
 	char ch = fgetc(pf);
 	printf("%c\n",ch);
 
@@ -30,7 +30,7 @@ int main()
 //};
 //int main()
 //{
-//	/*struct S s = { "ÕÅÈı",25,88.5 };*/
+//	/*struct S s = { "å¼ ä¸‰",25,88.5 };*/
 //	struct S tmp = { 0 };
 //	FILE* pf = fopen("test.txt", "rb");
 //	if (pf == NULL)
@@ -38,7 +38,7 @@ int main()
 //		printf("%s\n", strerror(errno));
 //		return 0;
 //	}
-//	//¶ş½øÖÆµÄĞÎÊ½¶ÁÎÄ¼ş
+//	//äºŒè¿›åˆ¶çš„å½¢å¼è¯»æ–‡ä»¶
 //	fread(&tmp, sizeof(struct S), 1, pf);
 //	printf("%s %d %f\n",tmp.name, tmp.age, tmp.score);
 //
@@ -55,14 +55,14 @@ int main()
 //};
 //int main()
 //{
-//	struct S s = { "ÕÅÈı",25,88.5 };
+//	struct S s = { "å¼ ä¸‰",25,88.5 };
 //	FILE* pf = fopen("test.txt","wb");
 //	if (pf == NULL)
 //	{
 //		printf("%s\n", strerror(errno));
 //		return 0;
 //	}
-//	//¶ş½øÖÆµÄĞÎÊ½Ğ´ÎÄ¼ş
+//	//äºŒè¿›åˆ¶çš„å½¢å¼å†™æ–‡ä»¶
 //	fwrite(&s, sizeof(struct S), 1, pf);
 //
 //	fclose(pf);
@@ -81,11 +81,11 @@ int main()
 //	struct S s = { 1024,3.14f,"hello" };
 //	struct S tmp = { 0 };
 //	char buf[1024] = { 0 };
-//	//°Ñ¸ñÊ½»¯µÄÊı¾İ×ª»»³É×Ö·û´®´æ´¢µ½buf
+//	//æŠŠæ ¼å¼åŒ–çš„æ•°æ®è½¬æ¢æˆå­—ç¬¦ä¸²å­˜å‚¨åˆ°buf
 //	sprintf(buf, "%d %f %s", s.n, s.score, s.arr);
 //	/*printf("%s\n",buf);*/
 //
-//	//´ÓbufÖĞ¶ÁÈ¡¸ñÊ½»¯µÄÊı¾İµ½tmpÖĞ
+//	//ä»bufä¸­è¯»å–æ ¼å¼åŒ–çš„æ•°æ®åˆ°tmpä¸­
 //	sscanf(buf,"%d %f %s", &(tmp.n), &(tmp.score), tmp.arr);
 //	printf("%d %f %s", tmp.n, tmp.score, tmp.arr);
 //
@@ -106,7 +106,7 @@ int main()
 //		return 0;
 //	}
 //
-//	//¸ñÊ½»¯µÄÊäÈëÊı¾İ
+//	//æ ¼å¼åŒ–çš„è¾“å…¥æ•°æ®
 //	fscanf(pf, "%d %f %s", &(s.n), &(s.score), s.arr);
 //	printf("%d %f %s\n", s.n, s.score, s.arr);
 //
@@ -129,7 +129,7 @@ int main()
 //		return 0;
 //	}
 //
-//	//¸ñÊ½»¯µÄĞÎÊ½Ğ´ÎÄ¼ş
+//	//æ ¼å¼åŒ–çš„å½¢å¼å†™æ–‡ä»¶
 //	fprintf(pf,"%d %f %s", s.n, s.score, s.arr);
 //
 //	fclose(pf);
@@ -138,10 +138,10 @@ int main()
 //}
 //int main()
 //{
-//	//´Ó¼üÅÌ¶ÁÈ¡Ò»ĞĞÎÄ±¾ĞÅÏ¢
+//	//ä»é”®ç›˜è¯»å–ä¸€è¡Œæ–‡æœ¬ä¿¡æ¯
 //	char buf[1024] = { 0 };
-//	//fgets(buf, 1024, stdin);//´Ó±ê×¼ÊäÈëÁ÷¶ÁÈ¡
-//	//fputs(buf, stdout);//´Ó±ê×¼Êä³öÁ÷¶ÁÈ¡
+//	//fgets(buf, 1024, stdin);//ä»æ ‡å‡†è¾“å…¥æµè¯»å–
+//	//fputs(buf, stdout);//ä»æ ‡å‡†è¾“å‡ºæµè¯»å–
 //
 //	gets(buf);
 //	puts(buf);
@@ -153,7 +153,7 @@ int main()
 //	char buf[1024] = { 0 };
 //	FILE* pf = fopen("test.txt", "w");
 //
-//	fputs("hello\n",pf);//fputsº¯ÊıĞè×Ô¼º²¹\n
+//	fputs("hello\n",pf);//fputså‡½æ•°éœ€è‡ªå·±è¡¥\n
 //	fputs("world",pf);
 //
 //	fclose(pf);
@@ -161,7 +161,7 @@ int main()
 //
 //	return 0;
 //}
-//¶ÁÈ¡ÎÄ¼şÖĞµÄÄÚÈİ
+//è¯»å–æ–‡ä»¶ä¸­çš„å†…å®¹
 //int main()
 //{
 //	char buf[1024] = { 0 };
@@ -169,7 +169,7 @@ int main()
 //
 //    fgets(buf,1024,pf);
 //	printf("%s",buf);
-//	fgets(buf, 1024, pf); //fgetsº¯Êı»á½«\n¶Á½øÀ´
+//	fgets(buf, 1024, pf); //fgetså‡½æ•°ä¼šå°†\nè¯»è¿›æ¥
 //	printf("%s", buf);
 //
 //	fclose(pf);
