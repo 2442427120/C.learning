@@ -5,7 +5,7 @@
 #include <errno.h>
 #include <stdlib.h>
 
-extern Add(int x, int y); // ÉùÃ÷
+extern Add(int x, int y); // å£°æ˜
 
 int main()
 {
@@ -70,12 +70,12 @@ int main()
 //	int ch = fgetc(pf);
 //	printf("%c\n", ch);
 //
-//	rewind(pf);//rewind - ÈÃÎÄ¼şÖ¸ÕëµÄÎ»ÖÃ»Øµ½ÎÄ¼şµÄÆğÊ¼Î»ÖÃ
+//	rewind(pf);//rewind - è®©æ–‡ä»¶æŒ‡é’ˆçš„ä½ç½®å›åˆ°æ–‡ä»¶çš„èµ·å§‹ä½ç½®
 //
 //	ch = fgetc(pf);
 //	printf("%c\n", ch);
 //	/*fseek(pf, -2, SEEK_CUR);*/
-//	//int pos = ftell(pf); // ftell - ¶ÁÈ¡Æ«ÒÆÁ¿
+//	//int pos = ftell(pf); // ftell - è¯»å–åç§»é‡
 //	//printf("%d\n",pos);
 //	/*int ch = fgetc(pf);
 //	printf("%c\n", ch);*/
