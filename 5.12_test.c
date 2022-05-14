@@ -31,13 +31,13 @@ void Create_By_Head(LinkList* L)
 	int i = 0;
 	int sum = 0;
 
-	printf("ÇëÊäÈëÒª´´½¨Á´±íµÄÔªËØ¸öÊı:>");
+	printf("è¯·è¾“å…¥è¦åˆ›å»ºé“¾è¡¨çš„å…ƒç´ ä¸ªæ•°:>");
 	scanf("%d", &sum);
 
 	for (i = 0; i < sum; i++)
 	{
 		p = (LinkList)malloc(sizeof(DNode));
-		printf("ÇëÊäÈëµÚ%d¸öÔªËØµÄÖµ:>", i+1);
+		printf("è¯·è¾“å…¥ç¬¬%dä¸ªå…ƒç´ çš„å€¼:>", i+1);
 		scanf("%d", &(p->data));
 
 		p->next = NULL;
@@ -46,7 +46,7 @@ void Create_By_Head(LinkList* L)
 
 	}
 
-	printf("´´½¨³É¹¦\n");
+	printf("åˆ›å»ºæˆåŠŸ\n");
 }
 
 
