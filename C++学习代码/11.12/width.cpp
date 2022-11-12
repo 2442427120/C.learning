@@ -1,0 +1,23 @@
+//3.演示width()成员函数是如何工作的。
+//#include <iostream>
+//
+//int main(void)
+//{
+//	using std::cout;
+//	int w = cout.width(30);
+//	cout << "default field width = " << w << ":\n";
+//	cout.width(5);
+//	cout << "N" << ':';
+//	cout.width(8);
+//	cout << "N * N" << ":\n";
+//
+//	for (long i = 1; i <= 100; i *= 10)
+//	{
+//		cout.width(5);
+//		cout << i << ':';
+//		cout.width(8);
+//		cout << i * i << ":\n";
+//	}
+//
+//	return 0;
+//}
